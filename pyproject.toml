@@ -5,7 +5,9 @@ description = "Web APP about sharing your pomodoro and share it to public"
 authors = [
     {name = "kelompok 4", email = "evanarnanda@gmail.com"},
 ]
-dependencies = []
+dependencies = [
+    "django>=5.0.6",
+]
 requires-python = ">=3.12"
 readme = "README.md"
 license = {text = "MIT"}
@@ -17,3 +19,6 @@ build-backend = "pdm.backend"
 
 [tool.pdm]
 distribution = true
+
+[tool.pdm.scripts]
+dev = "pdm run src/manage.py runserver"
