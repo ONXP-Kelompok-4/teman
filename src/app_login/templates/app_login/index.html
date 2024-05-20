@@ -1,10 +1,13 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teman WFH - Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="{% static 'app_login/htmx.min.js' %}"></script>
+    
+    <link rel="stylesheet" href="{% static 'app_login/output.css' %}">
 </head>
 <body>
     <div class="font-[sans-serif] text-[#333]">
