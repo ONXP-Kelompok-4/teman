@@ -11,15 +11,22 @@ class Migration(migrations.Migration):
 
     operations = [migrations.RunSQL(
         sql=[
-            ("""CREATE TABLE IF NOT EXISTS "users"."role" (
+            ("""CREATE TABLE "users"."role" (
              "role_id" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
              "role_name" varchar NOT NULL,
-             "created_at" timestamp NOT NULL DEFAULT NOW(),
-             FOREIGN KEY ("role_id") REFERENCES "users" ("role")
+             "created_at" timestamp NOT NULL DEFAULT NOW()
              );"""),
+
+             ("""ALTER TABLE "users"
+              ADD CONSTRAINT fk_role_id
+              FOREIGN KEY ("role_id")
+              REFERENCES "users"."role" ("role_id");
+              """),
              ],
         reverse_sql=[
-            ("""DROP TABLE IF EXISTS "users"."role";"""),
+            ("""ALTER TABLE "users"
+             DROP CONSTRAINT IF EXISTS fk_role_id;
+             DROP TABLE IF EXISTS users.role;"""),
             ]
             )
     ]

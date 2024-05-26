@@ -10,10 +10,10 @@ class Migration(migrations.Migration):
 
     operations = [migrations.RunSQL(
         sql=[
-            ("CREATE SCHEMA 'users'"),
+            ("CREATE SCHEMA IF NOT EXISTS users"),
              ],
         reverse_sql=[
-            ("DROP SCHEMA IF EXISTS 'users' CASCADE"),
+            ("DROP SCHEMA IF EXISTS users CASCADE"),
             ]
             )
     ]

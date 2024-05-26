@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
              );""")
              ],
         reverse_sql=[
-            ("DROP TABLE IF EXISTS TABLE spaces"),
+            ("DROP TABLE IF EXISTS spaces"),
             ("DROP EXTENSION IF EXISTS pgcrypto"),
             ]
             )

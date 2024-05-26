@@ -15,12 +15,12 @@ class Migration(migrations.Migration):
              "id" uuid PRIMARY KEY DEFAULT gen_random_uuid(),
              "username" varchar NOT NULL UNIQUE,
              "password" varchar NOT NULL,
-             "role" varchar NOT NULL,
+             "role_id" uuid,
              "created_at" timestamp NOT NULL DEFAULT NOW()
              );""")
              ],
         reverse_sql=[
-            ("DROP TABLE IF EXISTS TABLE users"),
+            ("DROP TABLE IF EXISTS users"),
             ]
             )
     ]
