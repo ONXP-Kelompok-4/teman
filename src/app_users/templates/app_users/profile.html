@@ -1,0 +1,19 @@
+{% extends "layouts/box.html" %}
+
+{% block content %}
+
+<div class="stat">
+    <div class="stat-figure text-secondary">
+      <div class="avatar online">
+        <div class="w-16 rounded-full">
+          <img src="{{ profile.avatar }}" alt="profile avatar">
+        </div>
+      </div>
+    </div>
+    <div class="stat-value">{{ profile.name }}</div>
+    {% if profile.info %}
+    <div class="stat-title">{{ profile.info|linebreaksbr }}</div>
+    {% endif %}
+    <div class="stat-desc text-secondary">31 tasks remaining</div>
+</div>
+{% endblock %}

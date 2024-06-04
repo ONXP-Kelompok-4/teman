@@ -1,0 +1,31 @@
+<header>
+    <div class="navbar bg-base-100">
+        <div class="flex-1">
+        <img class="h-5" src="/static/images/logo.svg" alt="Logo"/>
+          <a class="btn btn-ghost text-xl">Space</a>
+        </div>
+        <nav class="block bg-gray-800 relative">
+            <ul class="navitems flex items-center justify-center h-full">
+                {% if request.user.is_authenticated %}
+                <li class="mr-2 btn btn-ghost text-xl"><a href="/">Home</a></li>
+                <details>
+                    <summary class="mr-2 btn btn-ghost text-xl">{{ user.profile.name }} </summary>
+                    <ul>
+                        <li class="btn btn-ghost"><a href="{% url 'profile' %}">My Profile</a></li>
+                        <li class="btn btn-ghost"><a href="{% url 'profile-edit' %}">Edit Profile</a></li>
+                        <li class="btn btn-ghost"><a href="">Settings</a></li>
+                        <li class="btn btn-ghost"><a href="{% url 'account_logout'%}">Log Out</a></li>
+
+                    </ul>
+                </details>
+                <img class="h-8 w-8 rounded-full object-cover" src="{{ user.profile.avatar }}" alt="user profile avatar"/>
+
+                
+                {% else %}
+		            <li class="btn"><a href="{% url 'account_login' %}">Login</a></li>
+                    <li class="btn"><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+      </div>
+</header>

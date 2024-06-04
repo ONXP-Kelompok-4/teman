@@ -8,6 +8,10 @@ authors = [
 dependencies = [
     "django>=5.0.6",
     "dotenv>=0.0.5",
+    "pillow>=10.3.0",
+    "django-cleanup>=8.1.0",
+    "django-allauth>=0.63.3",
+    "django-htmx>=1.17.3",
 ]
 requires-python = ">=3.12"
 readme = "README.md"

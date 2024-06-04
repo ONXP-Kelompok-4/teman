@@ -13,9 +13,6 @@ let
         version = "2.42.0";
     });
 
-    podman = pkgs.podman.overrideAttrs(oldAttrs: rec {
-        version = "4.7.2";
-    });
 
     postgresql = pkgs.postgresql_15.overrideAttrs(oldAttrs: rec {
         version = "15.4";
@@ -26,7 +23,6 @@ pkgs.mkShell
 {
     nativeBuildInputs = with pkgs; [
         pkgs.git
-        podman
         bun
         python312
         python312Packages.pip
@@ -36,7 +32,7 @@ pkgs.mkShell
     ];
     
     shellHook = ''
-    alias docker=podman
+    
     export NIX_SHELL_DIR=$PWD/.nix-shell
     export LC_ALL=C
     export LANG=C.utf8
